@@ -2,15 +2,12 @@ format: outwillfile-2.0
 root:
   - wFilesExtract.out
 consistency:
-  wFilesExtract.out.will.yml: &ref_0
-    hash: 24e00be2ad705d8e4e2d84f06f5d5792
-    size: 37329
-  ../.ex.will.yml: &ref_1
+  ../.ex.will.yml: &ref_0
     hash: ede4f713270a04f0007d122f31c86521
     size: 1691
-  ../.im.will.yml: &ref_2
-    hash: ce0be4e27d5d3acf7482857d095e16cb
-    size: 4734
+  ../.im.will.yml: &ref_1
+    hash: 51dd5d33de8ac9016d9ee6399a595c2c
+    size: 4682
 module:
   wFilesExtract.out:
     about:
@@ -19,19 +16,19 @@ module:
       description: ___
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wfilesextract
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -682,24 +679,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -788,9 +767,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wFilesExtract.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wFilesExtract
@@ -798,21 +776,13 @@ module:
       description: ___
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wfilesextract
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -1468,6 +1438,5 @@ module:
         hash: ede4f713270a04f0007d122f31c86521
         size: 1691
       ../.im.will.yml:
-        hash: ce0be4e27d5d3acf7482857d095e16cb
-        size: 4734
-      wFilesExtract.out.will.yml: *ref_0
+        hash: 51dd5d33de8ac9016d9ee6399a595c2c
+        size: 4682
